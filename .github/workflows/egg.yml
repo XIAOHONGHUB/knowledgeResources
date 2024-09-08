@@ -1,6 +1,9 @@
 name: 打包react项目
 
-on: push
+on:
+  push:
+    branches:
+      - master  # 指定触发工作流的分支
 
 permissions:
   contents: write
@@ -14,8 +17,8 @@ jobs:
     - name: 读取仓库内容
       uses: actions/checkout@v4
 
-    - name: 安装依赖
-      run: 
+    - name: 安装依赖和打包项目
+      run: |
         npm install
         npm run build
 
